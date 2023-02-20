@@ -31,11 +31,9 @@ var Main = (function () {
       //card + buttons
       $(":button").css("font-size", "1vh");
       $("p#cardInPlay").css("font-size", "1vh");
-      console.log("portrait");
     } else {
       $(":button").css("font-size", "1vw");
       $("p#cardInPlay").css("font-size", "1vw");
-      console.log("landscape");
     }
   });
 
