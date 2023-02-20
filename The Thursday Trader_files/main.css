@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  text-align: left;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: 'Courier-New-Bold';
+  src: url(./font/Courier-New-Bold.ttf);
+}
+#gameTable {
+  position: fixed;
+  margin: auto;
+  font-family: 'Courier-New-Bold';
+  background-color: #334634;
+  color: #bad3c2;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-size: 1vw;
+  left: 0%;
+  top: 0%;
+}
+
+#cardDeck {
+  visibility: hidden;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+#container {
+  visibility: hidden;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+/*card style*/
+#cardInPlay {
+  font-weight: bolder;
+}
+#indicator {
+  animation: indicatorBlink 2s infinite;
+  transform: translateZ(0);
+  font-weight: 900;
+}
+@keyframes indicatorBlink {
+  from{
+    color: #bad3c2;
+  }
+  to {
+    color: #334634;
+  }
+}
+/*Title style and animation*/
+
+#ekareTitle {
+  position: absolute;
+  top: 4vh;
+  left: 33vw;
+  font-size: 50%;
+}
+#ekareTitle > p {
+  margin: 0;
+  font-weight: 900;
+  color: #ffffff;
+  white-space: pre;
+  animation: titleFlash 5s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+}
+@keyframes titleFlash {
+  from {color:#08ec08;
+  }
+  to {color:#bad3c2;
+  }
+}
+/*HUD style*/
+#HUD {
+  visibility: hidden;
+  position: relative;
+  top: 20vh;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+/*Inventory Style*/
+#inventory {
+  padding: 2%; 
+}
+#inventory2 {
+  position: absolute;
+  top: 2.5%; 
+}
+#inventory > p {
+  margin: 0;
+  white-space: pre;
+  animation: rotateStatus 40s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+  transform: translateZ(0);
+}
+#inventory2 > p {
+  margin: 0;
+  white-space: pre;
+  animation: rotateStatus 45s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+  transform: translateZ(0);
+}
+#inventory > p > a {
+  font-weight: 900;
+  animation: rotateStatus 40s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+  transform: translateZ(0);
+}
+.inventoryLabel {
+  font-size: 30%;
+  font-weight: 900;
+}
+
+/*Status style and animation*/
+
+#status {
+  padding: 3%;
+  left: 0%;
+  animation: rotateStatus 45s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+  
+}
+#status2 {
+  position: absolute;
+  top: 4%;
+  animation: rotateStatus 40s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+}
+#status > p {
+  margin: 0;
+  white-space: pre;
+
+}
+#status2 > p {
+  margin: 0;
+  white-space: pre;
+}
+.legend {
+  animation: none;
+  padding-top: 2%;
+
+}
+.statusLabel {
+  font-size: 30%;
+  font-weight: 900;
+}
+@keyframes rotateStatus {
+  from {transform: rotate(1.25deg);
+        
+  }
+  to {transform: rotate(-1.25deg);
+  }
+}
+.health {
+  animation: blinkGreen 1s ease-in-out infinite;
+  animation-direction: alternate;
+}
+@keyframes blinkGreen {
+  from {
+    color: #ffffff;
+  }
+  to {
+    color: #08ec08;
+
+  }
+}
+.hunger {
+  animation: blinkRed 1s ease-in-out infinite;
+  animation-direction: alternate;
+}
+@keyframes blinkRed {
+  from {
+    color: #ffffff;
+
+  }
+  to {
+    color: #f71a0a;
+  }
+}
+.interest {
+  animation: blinkBlue 1s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+}
+@keyframes blinkBlue {
+  from {
+    color: #ffffff;
+  }
+  to {
+    color: #0a9cfd;
+  }
+}
+/*Avatar style and animation*/
+#avatar {
+  padding: 12px; 
+  left: 35vw;
+}
+#avatar2 {
+  position: absolute;
+  top: 2%;
+}
+#avatar > p {
+  margin:0;
+  white-space: pre;
+  animation: rotateCat 30s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+}
+#avatar2 > p {
+  margin:0;
+  white-space: pre;
+  animation: rotateCat 31s ease-in-out infinite;
+  animation-direction: alternate;
+  transform: translateZ(0);
+}
+
+@keyframes rotateCat {
+  from {transform: rotate(10deg);
+        color: #f2f2f2;
+  }
+  to {transform: rotate(-10deg);
+      color: #8c8c8c;
+  }
+}
+.eyes {
+  color: rgb(232, 248, 10);
+  animation: blinkEyes 2s infinite;
+  transform: translateZ(0);
+}
+@keyframes blinkEyes{
+  from {opacity: 1;
+  }
+  to {opacity: 0;
+  }
+}
+.teeth {
+  transform: translateZ(0);
+} 
+.voice {
+  font-weight: bolder;
+  color: rgb(232, 248, 10);
+}
+
+/*Buttons Style*/
+
+input[type=button] {
+  text-align: center;
+  background-color: #334634;
+  color: #bad3c2;
+  font-weight: 900;
+  font-family: 'Courier-New-Bold';
+}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#clickMe {
+  position: absolute;
+  top: 2%;
+  left: 1%
+}
+#resetTable {
+  visibility: hidden;
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
