@@ -23,8 +23,7 @@ var Main = (function () {
     $("#startHere").css("visibility" , "hidden");
     $('#'+myCards[i].cardIndex).css("visibility", 'visible');
     showCard(myCards, i);
-  }
-    
+  }  
   
   $(window).resize(function(){
     if (window.innerHeight > window.innerWidth) {
@@ -150,10 +149,6 @@ var Main = (function () {
       }
     }
   }
-  
-  
-  
-
 
   function winCondition(myCards, nextCardIndex){
     
@@ -172,15 +167,12 @@ var Main = (function () {
           } else {
             $(".eyes").text(5);
           }
-      } 
-      
+      }      
       $(".eyes").css({"color":"#08ec08", "font-weight":"900"});
       $('#'+myCards[nextCardIndex].cardIndex).css('visibility','hidden');
       $("#resetTable").css("visibility" , "visible");
       $("#resetTable").click(resetGame);
-      
     }
-    
   }
   function gameOver (myCards, i) {
       $('#'+myCards[i].cardIndex).css('visibility','hidden');
@@ -194,8 +186,6 @@ var Main = (function () {
   function resetGame () {
     location.reload()
   }
-
-
         pub.setup = function () {
           //are we portrait or landscape?
           if (window.innerHeight > window.innerWidth) {
