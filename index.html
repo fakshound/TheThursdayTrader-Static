@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html, charset-UTF-8, width=device-width, initial-scale=1.0">
+    <title>The Thursday Trader</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/public_html/Ekare%20-%20Classifieds/images/favicon.ico">
+    <link rel="stylesheet" href="The%20Thursday%20Trader_files/main.css"><script src="The%20Thursday%20Trader_files/jquery-3.4.1.min.js"></script><script src="The%20Thursday%20Trader_files/main.js"></script></head>
+  </head>  
+<body>
+  <div id="gameTable">
+    <!-- Title + navigation -->
+    <div id="startHere">
+      <input id="clickMe" type="button" value="START" class="button" style="font-size: 1vw;">
+    </div>
+    <div id="resetTable">
+      <input id="clickMe" type="button" value="TITLE" class="button" style="font-size: 1vw;">
+    </div>
+    <div id="ekareTitle">
+      <p>   ________________     __      __     ___________ </p>
+<p>  /.............../|  /.../|  /.../|  /........../|</p>
+<p> /_____....______/ / /.../ / /.../ / /..._______/ /</p>
+<p> |____/.../|_____|/ /.../ / /.../ / /.../|______|/</p>
+<p>     /.../ /       /.../_/_/.../ / /.../_/_</p>
+<p>    /.../ /       /.........../ / /....___/|</p>
+<p>   /.../ /       /...____..../ / /.../ |_|/</p>
+<p>  /.../ /       /.../ / /.../ / /.../_/____</p>
+<p> /.../ /       /.../ / /.../ / /......... /|</p>
+<p>/___/ /       / _ / / / _ / / /__________/ /</p>
+<p>|___|/        |___|/  |___|/  |__________|/</p>
+<br>
+<p>   _______________    ____    ____    ____   ____     ________       ________       _________       ___________    ____      ____ </p>
+<p>  /............../|  /.../|  /.../|  /.../| /.../|  _/..___...\    _/..____...\    /... ___...\    /...___..../|  /..../|  /..../|</p>
+<p> /_____...._____/ / /.../ / /.../ / /.../ //.../ / /.../|_/.../|  /.../|__/.../|  /.../|__/.../|  /.../|_/.../ / /..../ / /..../ /</p>
+<p> |____/.../|____|/ /.../ / /.../ / /.../ //.../ / /.../_//.../ / /.../ / /___/ / /.../ / /.../ / /.../ //.../ / /..../ / /..../ /</p>
+<p>     /.../ /      /.../_/_/.../ / /.../ //.../ / /.......___/ /   \...\  |___|/ /.../ / /.../ / /.../_//.../ / /..../_/_/..../ /</p>
+<p>    /.../ /      /.........../ / /.../ //.../ / /........\ _|/     \\...\      /.../ / /.../ / /........../ / / _ ...... __ / /</p>
+<p>   /.../ /      /...____..../ / /.../ //.../ / /...___..../|  ____  \\...\    /.../ / /.../ / /...___..../ /  |___/.../ ____|/</p>
+<p>  /.../ /      /.../ / /.../ / /.../ //.../ / /.../ //.../ / /...//  /.../|  /.../ / /.../ / /.../ //.../ /      /.../ /</p>
+<p> /.../ /      /.../ / /.../ / /.../_//.../ / /.../ //.../ / /...//__/.../ / /.../_/_/.../ / /.../ //.../ /      /.../ /</p>
+<p>/___/ /      /___/ / /___/ / /__________/ / /___/ //___/ / |\__________/ / /___________/ / /___/ //___/ /      / _ / /</p>
+<p>|___|/       |___|/  |___|/  |__________|/  |___|/ |___|/   \|_________|/  |___________|/  |___|/ |___|/       |___|/  </p>
+<br>
+<p>   ________________     ________      ___________     _________      ___________     ________ </p>    
+<p>  /.............../|  _/..___...\    /...___..../|  /...____...\    /........../|  _/..___...\</p>
+<p> /_____....______/ / /.../|_/.../|  /.../|_/.../ / /.../|__/.../|  /..._______/ / /.../|_/.../|</p>
+<p> |____/.../|_____|/ /.../_//.../ / /.../ //.../ / /.../ / /.../ / /.../|______|/ /.../_//.../ /</p> 
+<p>     /.../ /       /.......___/ / /.../_//.../ / /.../ / /.../ / /.../_/_       /.......___/ /</p>
+<p>    /.../ /       /........\ _|/ /........../ / /.../ / /.../ / /....___/|     /........\ _|/</p>
+<p>   /.../ /       /...___..../|  /...___..../ / /.../ / /.../ / /.../|__|/     /...___..../|</p>
+<p>  /.../ /       /.../ //.../ / /.../ //.../ / /.../ / /.../ / /.../_/____    /.../ //.../ /</p>
+<p> /.../ /       /.../ //.../ / /.../ //.../ / /.../_/_/.../ / /......... /|  /.../ //.../ /</p>
+<p>/___/ /       /___/ //___/ / /___/ //___/ / /___________/ / /__________/ / /___/ //___/ /</p>
+<p>|___|/        |___|/ |___|/  |___|/ |___|/  |___________|/  |__________|/ |___|/ |___|/</p>    </div>
+
+    <!-- Card deck array  -->
+    <div id="cardDeck">
+      <div id="deckArray">
+    [{"cardName":"Today is Thursday","cardIndex":"0","textString":"Is it
+Thursday","multiplier":"interest","sign":"*"},{"cardName":"Game 
+Cards","cardIndex":"1","textString":"Would you like some free 
+gamecards","multiplier":"interest","sign":"+"},{"cardName":"Toy 
+Bricks","cardIndex":"2","textString":"How about these toy 
+bricks","multiplier":"interest","sign":"-"},{"cardName":"Soup In 
+Bowl","cardIndex":"3","textString":"Fancy some soup, comes with 
+bowl","multiplier":"hunger","sign":"+"},{"cardName":"Golden 
+Fleece","cardIndex":"4","textString":"This is actually a drink, from a 
+suit","multiplier":"health","sign":"+"},{"cardName":"Dentist 
+Chair","cardIndex":"5","textString":"comfy recliner, 
+keen?","multiplier":"health","sign":"-"},{"cardName":"Large Wooden 
+Car","cardIndex":"6","textString":"Not as big as a real car, still large
+ though","multiplier":"interest","sign":"+"},{"cardName":"Many Colourful
+ Balls","cardIndex":"7","textString":"They're plastic and there are too 
+many of them","multiplier":"interest","sign":"-"},{"cardName":"Wrist 
+Watch","cardIndex":"8","textString":"You can keep track of space with 
+this","multiplier":"health","sign":"+"},{"cardName":"Fire 
+Extinguisher","cardIndex":"9","textString":"Great against 
+fire","multiplier":"interest","sign":"-"},{"cardName":"Three 
+Bananas","cardIndex":"10","textString":"Almost beyond consumption, 
+pretty sweet 
+though","multiplier":"hunger","sign":"+"},{"cardName":"Bucket Of 
+Water","cardIndex":"11","textString":"It's reasonably fresh, comes with 
+bucket","multiplier":"hunger","sign":"+"},{"cardName":"Free 
+Hat","cardIndex":"12","textString":"Come see our 
+presentation","multiplier":"interest","sign":"+"},{"cardName":"Some 
+Military Junk","cardIndex":"13","textString":"Just a prop for a 
+propaganda film","multiplier":"health","sign":"-"},{"cardName":"Straight
+ Up Trash","cardIndex":"14","textString":"Ewww 
+disgusting","multiplier":"health","sign":"-"},{"cardName":"Buisness 
+Card","cardIndex":"15","textString":"My Manager hands them out to 
+all","multiplier":"health","sign":"-"},{"cardName":"A Tray Of 
+Ibuprofen","cardIndex":"16","textString":"It takes the pain of last 
+night away","multiplier":"health","sign":"-"},{"cardName":"Pyrantel 
+Embonate 
+Chocolate","cardIndex":"17","textString":"specialChocolate","multiplier":"hunger","sign":"+"},{"cardName":"Misc
+ Electrical Cables \/ Junk","cardIndex":"18","textString":"VGA, RCA, and
+ some coaxial. Useless 
+jargon","multiplier":"interest","sign":"-"},{"cardName":"Fried 
+Amplifier","cardIndex":"19","textString":"Original User attached too 
+many speakers to 
+this","multiplier":"health","sign":"-"},{"cardName":"Hardcore 
+Single","cardIndex":"20","textString":"Nice track for some 
+hakken","multiplier":"interest","sign":"+"},{"cardName":"Portable 
+Speaker (Bluetooth)","cardIndex":"21","textString":"It's busted on top, 
+still plays nice sound 
+though","multiplier":"interest","sign":"+"},{"cardName":"Carton of A0 
+poster tubes","cardIndex":"22","textString":"Send your prints far and 
+wide","multiplier":"health","sign":"+"},{"cardName":"A vile 
+perfume","cardIndex":"23","textString":"Covers most 
+smells","multiplier":"interest","sign":"-"},{"cardName":"Empty salt 
+dispenser","cardIndex":"24","textString":"The container is alright, 
+contents is not much","multiplier":"hunger","sign":"-"},{"cardName":"Red
+ Potion","cardIndex":"25","textString":"An RPG classic 
+potion","multiplier":"health","sign":"+"},{"cardName":"The rules 
+card","cardIndex":"26","textString":"An extra that comes with all 
+packs","multiplier":"health","sign":"-"},{"cardName":"Fresh cut 
+grass","cardIndex":"27","textString":"The living stunted, you feel 
+alive","multiplier":"health","sign":"+"},{"cardName":"paycheck","cardIndex":"28","textString":"Penance
+ for being 
+controlled","multiplier":"health","sign":"+"},{"cardName":"Kitchen 
+Whisk","cardIndex":"29","textString":"Dropped patio items, also 
+eggs","multiplier":"hunger","sign":"+"},{"cardName":"Bus 
+Horn","cardIndex":"30","textString":"Goes \"toot-toot, get out of the 
+way\" ","multiplier":"interest","sign":"-"},{"cardName":"Lollies 
+Necklace","cardIndex":"31","textString":"Cheap sweets on a 
+string","multiplier":"health","sign":"-"},{"cardName":"Water 
+body","cardIndex":"32","textString":"Half price damaged 
+stock","multiplier":"interest","sign":"-"},{"cardName":"Apple 
+Slices","cardIndex":"33","textString":"Healthy food for 
+K\u014dhanga","multiplier":"hunger","sign":"+"},{"cardName":"Arcoroc mug
+ of old tea","cardIndex":"34","textString":"Indestructible 
+mug","multiplier":"hunger","sign":"-"},{"cardName":"I don't want to 
+watch this show","cardIndex":"35","textString":"A tablet for viewing and
+ passing 
+time","multiplier":"interest","sign":"-"},{"cardName":"Studfinder","cardIndex":"36","textString":"Destroy
+ the walls, also hot 
+folk","multiplier":"interest","sign":"+"},{"cardName":"Two 
+chickens","cardIndex":"37","textString":"A little dim but 
+friendly","multiplier":"health","sign":"+"},{"cardName":"Wine 
+bucket","cardIndex":"38","textString":"So much promise, so much 
+sugar","multiplier":"health","sign":"-"}]
+</div>
+      <div id="container">
+        <div id="0">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Is it Thursday<a id="indicator">|</a>
+          <input id="0Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="0Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="1">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Would you like some free gamecards<a id="indicator">|</a>
+          <input id="1Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="1Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="2">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">How about these toy bricks<a id="indicator">|</a>
+          <input id="2Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="2Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="3">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Fancy some soup, comes with bowl<a id="indicator">|</a>
+          <input id="3Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="3Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="4">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">This is actually a drink, from a suit<a id="indicator">|</a>
+          <input id="4Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="4Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="5">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">comfy recliner, keen?<a id="indicator">|</a>
+          <input id="5Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="5Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="6">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Not as big as a real car, still large though<a id="indicator">|</a>
+          <input id="6Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="6Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="7">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">They're plastic and there are too many of them<a id="indicator">|</a>
+          <input id="7Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="7Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="8">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">You can keep track of space with this<a id="indicator">|</a>
+          <input id="8Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="8Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="9">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Great against fire<a id="indicator">|</a>
+          <input id="9Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="9Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="10">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Almost beyond consumption, pretty sweet though<a id="indicator">|</a>
+          <input id="10Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="10Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="11">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">It's reasonably fresh, comes with bucket<a id="indicator">|</a>
+          <input id="11Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="11Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="12">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Come see our presentation<a id="indicator">|</a>
+          <input id="12Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="12Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="13">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Just a prop for a propaganda film<a id="indicator">|</a>
+          <input id="13Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="13Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="14">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Ewww disgusting<a id="indicator">|</a>
+          <input id="14Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="14Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="15">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">My Manager hands them out to all<a id="indicator">|</a>
+          <input id="15Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="15Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="16">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">It takes the pain of last night away<a id="indicator">|</a>
+          <input id="16Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="16Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="17">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">specialChocolate<a id="indicator">|</a>
+          <input id="17Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="17Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="18">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">VGA, RCA, and some coaxial. Useless jargon<a id="indicator">|</a>
+          <input id="18Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="18Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="19">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Original User attached too many speakers to this<a id="indicator">|</a>
+          <input id="19Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="19Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="20">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Nice track for some hakken<a id="indicator">|</a>
+          <input id="20Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="20Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="21">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">It's busted on top, still plays nice sound though<a id="indicator">|</a>
+          <input id="21Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="21Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="22">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Send your prints far and wide<a id="indicator">|</a>
+          <input id="22Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="22Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="23">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Covers most smells<a id="indicator">|</a>
+          <input id="23Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="23Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="24">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">The container is alright, contents is not much<a id="indicator">|</a>
+          <input id="24Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="24Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="25">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">An RPG classic potion<a id="indicator">|</a>
+          <input id="25Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="25Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="26">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">An extra that comes with all packs<a id="indicator">|</a>
+          <input id="26Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="26Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="27">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">The living stunted, you feel alive<a id="indicator">|</a>
+          <input id="27Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="27Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="28">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Penance for being controlled<a id="indicator">|</a>
+          <input id="28Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="28Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="29">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Dropped patio items, also eggs<a id="indicator">|</a>
+          <input id="29Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="29Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="30">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Goes "toot-toot, get out of the way" <a id="indicator">|</a>
+          <input id="30Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="30Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="31">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Cheap sweets on a string<a id="indicator">|</a>
+          <input id="31Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="31Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="32">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Half price damaged stock<a id="indicator">|</a>
+          <input id="32Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="32Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="33">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Healthy food for Kōhanga<a id="indicator">|</a>
+          <input id="33Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="33Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="34">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Indestructible mug<a id="indicator">|</a>
+          <input id="34Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="34Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="35">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">A tablet for viewing and passing time<a id="indicator">|</a>
+          <input id="35Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="35Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="36">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">Destroy the walls, also hot folk<a id="indicator">|</a>
+          <input id="36Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="36Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="37">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">A little dim but friendly<a id="indicator">|</a>
+          <input id="37Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="37Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+      
+      <div id="container">
+        <div id="38">
+        <!-- Do we need this p element? -->
+          <p id="cardInPlay" style="font-size: 1vw;">So much promise, so much sugar<a id="indicator">|</a>
+          <input id="38Accept" type="button" value="YES" style="font-size: 1vw;">
+          <input id="38Decline" type="button" value="NO" style="font-size: 1vw;">
+        </p>
+        </div>
+      </div>
+          </div>
+
+    <!-- HUD = status + avatar + inventory -->
+    <div id="HUD">
+      <div id="status">
+        <p class="statusLabel">            ________    _______________    ____________    _______________     ____    ____      ________ </p>
+<p class="statusLabel">         _/..____...\  /............../|  /...____..../|  /............../|  /.../|  /.../|   _/..____...\</p>
+<p class="statusLabel">       /.../|__/.../| /_____...._____/ / /.../|__/.../ / /_____...._____/ / /.../ / /.../ /  /.../|__/.../|</p>
+<p class="statusLabel">      /.../ / /___/ / |____/.../|____|/ /.../ / /.../ /  |____/.../|____|/ /.../ / /.../ /  /.../ / /___/ /</p>
+<p class="statusLabel">       \...\  |___|/      /.../ /      /.../_/_/.../ /       /.../ /      /.../ / /.../     \...\  |___|/ </p>
+<p class="statusLabel">       \\...\            /.../ /      /.........../ /       /.../ /      /.../ / /.../ /     \\...\ </p>
+<p class="statusLabel">  ____  \\...\          /.../ /      /...____..../ /       /.../ /      /.../ / /.../ / ____  \\...\  </p>
+<p class="statusLabel"> /...//  /.../|        /.../ /      /.../ / /.../ /       /.../ /      /.../ / /.../ / /...//  /.../|</p>
+<p class="statusLabel">/...//__/.../ /       /.../ /      /.../ / /.../ /       /.../ /      /.../_/_/.../ / /...//__/.../ / </p>
+<p class="statusLabel">|\__________/ /      /___/ /      /___/ / /___/ /       /___/ /      /___________/ / |\__________/ /</p>
+<p class="statusLabel"> \|_________|/       |___|/       |___|/  |___|/        |___|/       |___________|/  \|_________|/</p>
+<br>
+<br>
+<p>        ___          ___          ___       </p>
+<p>       /<a class="hunger">   </a>/|       /<a class="health">   </a>/|       /<a class="interest">   </a>/|</p>
+<p>      /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>     /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>    /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>   /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>  /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p> /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>/___/ /      /___/ /      /___/ /</p>
+<p>|___|/       |___|/       |___|/</p>
+<p class="legend"></p>
+
+          <div id="status2">
+            <p class="statusLabel">            ________    _______________    ____________    _______________     ____    ____      ________ </p>
+<p class="statusLabel">         _/..____...\  /............../|  /...____..../|  /............../|  /.../|  /.../|   _/..____...\</p>
+<p class="statusLabel">       /.../|__/.../| /_____...._____/ / /.../|__/.../ / /_____...._____/ / /.../ / /.../ /  /.../|__/.../|</p>
+<p class="statusLabel">      /.../ / /___/ / |____/.../|____|/ /.../ / /.../ /  |____/.../|____|/ /.../ / /.../ /  /.../ / /___/ /</p>
+<p class="statusLabel">       \...\  |___|/      /.../ /      /.../_/_/.../ /       /.../ /      /.../ / /.../     \...\  |___|/ </p>
+<p class="statusLabel">       \\...\            /.../ /      /.........../ /       /.../ /      /.../ / /.../ /     \\...\ </p>
+<p class="statusLabel">  ____  \\...\          /.../ /      /...____..../ /       /.../ /      /.../ / /.../ / ____  \\...\  </p>
+<p class="statusLabel"> /...//  /.../|        /.../ /      /.../ / /.../ /       /.../ /      /.../ / /.../ / /...//  /.../|</p>
+<p class="statusLabel">/...//__/.../ /       /.../ /      /.../ / /.../ /       /.../ /      /.../_/_/.../ / /...//__/.../ / </p>
+<p class="statusLabel">|\__________/ /      /___/ /      /___/ / /___/ /       /___/ /      /___________/ / |\__________/ /</p>
+<p class="statusLabel"> \|_________|/       |___|/       |___|/  |___|/        |___|/       |___________|/  \|_________|/</p>
+<br>
+<br>
+<p>        ___          ___          ___       </p>
+<p>       /<a class="hunger">   </a>/|       /<a class="health">   </a>/|       /<a class="interest">   </a>/|</p>
+<p>      /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>     /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>    /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>   /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>  /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p> /<a class="hunger">   </a>/ /      /<a class="health">   </a>/ /      /<a class="interest">   </a>/ /</p>
+<p>/___/ /      /___/ /      /___/ /</p>
+<p>|___|/       |___|/       |___|/</p>
+<p class="legend"></p>
+
+          </div>
+      </div>
+      
+      <div id="avatar">
+        <p>       _                 _</p>
+<p>      /\/               /\/   </p> 
+<p>   oooOOO_/           _OOOooo/</p>
+<p>  oooO...OOo/       oOO...Oooo/</p>
+<p> oooOO....OOo/_..__oOO....OOooo/</p> 
+<p> oo000    00000..00000    000oo/</p>
+<p> oo                          oo/</p>
+<p>oo     ( <a class="eyes">|</a> )        ( <a class="eyes">|</a> )     oo/</p>
+<p>GGG/           /_            GGG/</p>
+<p> ccci/                     iccc/</p>
+<p>  ''''/      <a class="teeth">[][][][]</a>     ''''/</p>
+<p>  __                         __</p>
+<p> |  |       <a class="voice">SATISFY ME</a>      |  |</p>
+<p>  ^^                         ^^</p>          <div id="avatar2">
+            <p>       _                 _</p>
+<p>      /\/               /\/   </p> 
+<p>   oooOOO_/           _OOOooo/</p>
+<p>  oooO...OOo/       oOO...Oooo/</p>
+<p> oooOO....OOo/_..__oOO....OOooo/</p> 
+<p> oo000    00000..00000    000oo/</p>
+<p> oo                          oo/</p>
+<p>oo     ( <a class="eyes">|</a> )        ( <a class="eyes">|</a> )     oo/</p>
+<p>GGG/           /_            GGG/</p>
+<p> ccci/                     iccc/</p>
+<p>  ''''/      <a class="teeth">[][][][]</a>     ''''/</p>
+<p>  __                         __</p>
+<p> |  |       <a class="voice">SATISFY ME</a>      |  |</p>
+<p>  ^^                         ^^</p>          </div>
+      </div>
+      
+      <div id="inventory">
+        <p class="inventoryLabel">        ________________    __           ____    ____       ____    ___________    __           ____    ________________     __________      ________      ____      ____  </p>
+<p class="inventoryLabel">       /.............../|  /..\         /.../|  /.../|     /.../|  /........../|  /..\         /.../|  /.............../|  /....___.../|   _/..___...\    /..../|  /..../|</p>
+<p class="inventoryLabel">      /_____....______/ / /....\       /.../ / /.../ /    /.../ / /..._______/ / /....\       /.../ / /_____....______/ / /.../|__/.../ / /.../|_/.../|  /..../ / /..../ /</p>
+<p class="inventoryLabel">      |____/.../|_____|/ /......\     /.../ / /.../ /    /.../ / /.../|______|/ /......\     /.../ /  |____/.../|_____|/ /.../ / /.../ / /.../_//.../ / /..../ / /..../ /</p>
+<p class="inventoryLabel">          /.../ /       /.../\...\   /.../ /  |\...\    /.../ / /.../_/_       /.../\...\   /.../ /       /.../ /       /.../ / /.../ / /.......___/ / /..../_/_/..../ /</p>
+<p class="inventoryLabel">         /.../ /       /.../  \...\ /.../ /   \ \...\  /.../ / /....___/|     /.../  \...\ /.../ /       /.../ /       /.../ / /.../ / /........\ _|/ /___.......__ / /</p>
+<p class="inventoryLabel">        /.../ /       /.../ /\ \...\.../ /     \ \...\/.../ / /.../ |_|/     /.../ /\ \...\.../ /       /.../ /       /.../ / /.../ / /...___..../|   |___/..../ __|/</p>
+<p class="inventoryLabel">  _____/.../_/___    /.../ /  \ \...../ /       \ \....../ / /.../_/____    /.../ /  \ \...../ /       /.../ /       /.../ / /.../ / /.../ //.../ /      /..../ / </p>
+<p class="inventoryLabel"> /............../|  /.../ /    \ \.../ /         \ \..../ / /......... /|  /.../ /    \ \.../ /       /.../ /       /.../_/_/.../ / /.../ //.../ /      /..../ / </p>
+<p class="inventoryLabel">/______________/ / /___/ /      \ \_/ /           \ \__/ / /__________/ / /___/ /      \ \_/ /       /.../ /       /___________/ / /___/ //___/ /      /____/ / </p>
+<p class="inventoryLabel">|______________|/  |___|/        \|_|/             \|__|/  |__________|/  |___|/        \|_|/        |___|/        |___________|/  |___|/ |___|/       |____|/ </p>
+<br>
+<br>
+<p>    __  <a class="itemSlot1"></a></p>
+<p>   \ 1 \---------------------------------\</p>
+<p>      __  <a class="itemSlot2"></a></p>
+<p>     \ 2 \---------------------------------\</p>
+<p>        __  <a class="itemSlot3"></a></p>
+<p>       \ 3 \---------------------------------\</p>
+<p>          __  <a class="itemSlot4"></a></p>
+<p>         \ 4 \---------------------------------\</p>
+<p>            __  <a class="itemSlot5"></a></p>
+<p>           \ 5 \-------------------------- E_Kare\</p>        <div id="inventory2">
+            <p class="inventoryLabel">        ________________    __           ____    ____       ____    ___________    __           ____    ________________     __________      ________      ____      ____  </p>
+<p class="inventoryLabel">       /.............../|  /..\         /.../|  /.../|     /.../|  /........../|  /..\         /.../|  /.............../|  /....___.../|   _/..___...\    /..../|  /..../|</p>
+<p class="inventoryLabel">      /_____....______/ / /....\       /.../ / /.../ /    /.../ / /..._______/ / /....\       /.../ / /_____....______/ / /.../|__/.../ / /.../|_/.../|  /..../ / /..../ /</p>
+<p class="inventoryLabel">      |____/.../|_____|/ /......\     /.../ / /.../ /    /.../ / /.../|______|/ /......\     /.../ /  |____/.../|_____|/ /.../ / /.../ / /.../_//.../ / /..../ / /..../ /</p>
+<p class="inventoryLabel">          /.../ /       /.../\...\   /.../ /  |\...\    /.../ / /.../_/_       /.../\...\   /.../ /       /.../ /       /.../ / /.../ / /.......___/ / /..../_/_/..../ /</p>
+<p class="inventoryLabel">         /.../ /       /.../  \...\ /.../ /   \ \...\  /.../ / /....___/|     /.../  \...\ /.../ /       /.../ /       /.../ / /.../ / /........\ _|/ /___.......__ / /</p>
+<p class="inventoryLabel">        /.../ /       /.../ /\ \...\.../ /     \ \...\/.../ / /.../ |_|/     /.../ /\ \...\.../ /       /.../ /       /.../ / /.../ / /...___..../|   |___/..../ __|/</p>
+<p class="inventoryLabel">  _____/.../_/___    /.../ /  \ \...../ /       \ \....../ / /.../_/____    /.../ /  \ \...../ /       /.../ /       /.../ / /.../ / /.../ //.../ /      /..../ / </p>
+<p class="inventoryLabel"> /............../|  /.../ /    \ \.../ /         \ \..../ / /......... /|  /.../ /    \ \.../ /       /.../ /       /.../_/_/.../ / /.../ //.../ /      /..../ / </p>
+<p class="inventoryLabel">/______________/ / /___/ /      \ \_/ /           \ \__/ / /__________/ / /___/ /      \ \_/ /       /.../ /       /___________/ / /___/ //___/ /      /____/ / </p>
+<p class="inventoryLabel">|______________|/  |___|/        \|_|/             \|__|/  |__________|/  |___|/        \|_|/        |___|/        |___________|/  |___|/ |___|/       |____|/ </p>
+<br>
+<br>
+<p>    __  <a class="itemSlot1"></a></p>
+<p>   \ 1 \---------------------------------\</p>
+<p>      __  <a class="itemSlot2"></a></p>
+<p>     \ 2 \---------------------------------\</p>
+<p>        __  <a class="itemSlot3"></a></p>
+<p>       \ 3 \---------------------------------\</p>
+<p>          __  <a class="itemSlot4"></a></p>
+<p>         \ 4 \---------------------------------\</p>
+<p>            __  <a class="itemSlot5"></a></p>
+<p>           \ 5 \-------------------------- E_Kare\</p>        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+
+
+</body></html>
