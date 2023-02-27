@@ -166,7 +166,7 @@ var Main = (function () {
     
       let j=0;
       for (let i=0;i<3;i++) {
-        setTimeout(typeTutorial, 10000*i, tutorialArray.tutorial[i],i,j);
+        setTimeout(typeTutorial, 7000*i, tutorialArray.tutorial[i],i,j);
       }
     }
 
@@ -207,8 +207,7 @@ var Main = (function () {
   function gameOver (myCards, i) {
       $('#'+myCards[i].cardIndex).css('visibility','hidden');
       $(".voice").text("GAME  OVER");
-      $(".eyes").text("X");          //Tutorial
-      howToPlay();
+      $(".eyes").text("X");         
       $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
       $(".eyes").css({"color":"#f71a0a"});
       $("#resetTable").css("visibility" , "visible");
