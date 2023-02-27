@@ -163,15 +163,11 @@ var Main = (function () {
   }
   //how to play the game
   function howToPlay(tutorialArray, i) {
-    
       let j=0;
       for (let i=0;i<3;i++) {
         setTimeout(typeTutorial, 7000*i, tutorialArray.tutorial[i],i,j);
       }
     }
-
-  
-  
   function typeTutorial (tutorialLine, i, j) {
     if (j < tutorialLine.length) {
       $("#howToPlay p")[i].innerHTML += tutorialLine.charAt(j);
