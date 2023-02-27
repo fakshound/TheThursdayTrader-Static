@@ -12,6 +12,11 @@ var Main = (function () {
     //display legend
    var legend = $(".legend").text("HUNGER      HEALTH       INTEREST");
    $('.legend').text = legend;
+
+  //Tutorial
+
+  getTutorial(0);
+  
    loadCards();
   }
 
@@ -130,12 +135,12 @@ var Main = (function () {
         return nextCardIndex;
     }
   }
-  function typeWriter(item, i, j) {
+  function typeInventory(item, i, j) {
     
       if (j < item.length) {
         $(".itemSlot"+i)[0].text += item.charAt(j);
         j++
-        setTimeout(typeWriter, 50, item, i, j);
+        setTimeout(typeInventory, 50, item, i, j);
     }
   }
   //Inventory
@@ -144,9 +149,34 @@ var Main = (function () {
     for(let i=1;i<6;i++) {
       //Search for an empty item slot
       if ($(".itemSlot"+i)[0].text.length == 0){
-        typeWriter(item, i, j);
+        typeInventory(item, i, j);
         break;
       }
+    }
+  }
+  //get Turorial
+  function getTutorial(i) {
+    let tutorialArray = $('#tutorialArray')[0].innerHTML.trim();
+      tutorialArray = tutorialArray.replace(/[\n\r]/g, '');
+      tutorialArray = JSON.parse(tutorialArray);
+      howToPlay(tutorialArray, i)
+  }
+  //how to play the game
+  function howToPlay(tutorialArray, i) {
+    
+      let j=0;
+      for (let i=0;i<3;i++) {
+        setTimeout(typeTutorial, 10000*i, tutorialArray.tutorial[i],i,j);
+      }
+    }
+
+  
+  
+  function typeTutorial (tutorialLine, i, j) {
+    if (j < tutorialLine.length) {
+      $("#howToPlay p")[i].innerHTML += tutorialLine.charAt(j);
+      j++
+      setTimeout(typeTutorial, 50, tutorialLine, i, j);
     }
   }
 
@@ -177,7 +207,8 @@ var Main = (function () {
   function gameOver (myCards, i) {
       $('#'+myCards[i].cardIndex).css('visibility','hidden');
       $(".voice").text("GAME  OVER");
-      $(".eyes").text("X");
+      $(".eyes").text("X");          //Tutorial
+      howToPlay();
       $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
       $(".eyes").css({"color":"#f71a0a"});
       $("#resetTable").css("visibility" , "visible");
@@ -195,6 +226,8 @@ var Main = (function () {
           }
           //Begin game
           $("#startHere").click(prepareGame);
+
+
 
           
         };
