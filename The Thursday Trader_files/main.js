@@ -14,10 +14,10 @@ var Main = (function () {
    $('.legend').text = legend;
 
   //Tutorial
-
   getTutorial(0);
   
-   loadCards();
+  //Get Cards in JSON
+  loadCards();
   }
 
   function loadCards () {
@@ -129,18 +129,13 @@ var Main = (function () {
       while(filteredArray.length > 0 && discardedCards.length < myCards.length);
       //Out of cards
       if(discardedCards.length === myCards.length) {
-        resetGame();
+        $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
+        $(".eyes").css({"color":"#f71a0a"});        $(".eyes").text("[~]");   
+        $(".voice").text("NOTHING4U");   
+        setTimeout(resetGame, 5000);
       }
         var nextCardIndex = randX;{
         return nextCardIndex;
-    }
-  }
-  function typeInventory(item, i, j) {
-    
-      if (j < item.length) {
-        $(".itemSlot"+i)[0].text += item.charAt(j);
-        j++
-        setTimeout(typeInventory, 50, item, i, j);
     }
   }
   //Inventory
@@ -154,20 +149,31 @@ var Main = (function () {
       }
     }
   }
-  //get Turorial
+  //Typrewriter effect for inventory adds
+  function typeInventory(item, i, j) {
+    
+      if (j < item.length) {
+        $(".itemSlot"+i)[0].text += item.charAt(j);
+        j++
+        setTimeout(typeInventory, 50, item, i, j);
+    }
+  }
+  
+  //get Tutorial
   function getTutorial(i) {
     let tutorialArray = $('#tutorialArray')[0].innerHTML.trim();
       tutorialArray = tutorialArray.replace(/[\n\r]/g, '');
       tutorialArray = JSON.parse(tutorialArray);
       howToPlay(tutorialArray, i)
   }
-  //how to play the game
+  //Read tutorial lines
   function howToPlay(tutorialArray, i) {
       let j=0;
-      for (let i=0;i<3;i++) {
+      for (let i=0;i<=3;i++) {
         setTimeout(typeTutorial, 7000*i, tutorialArray.tutorial[i],i,j);
       }
     }
+  //typewriter effect for tutorial
   function typeTutorial (tutorialLine, i, j) {
     if (j < tutorialLine.length) {
       $("#howToPlay p")[i].innerHTML += tutorialLine.charAt(j);
@@ -176,6 +182,7 @@ var Main = (function () {
     }
   }
 
+  //You have won
   function winCondition(myCards, nextCardIndex){
     
     let interest = $('.interest')[0].text,
@@ -193,7 +200,16 @@ var Main = (function () {
           } else {
             $(".eyes").text(5);
           }
-      }      
+      }
+      //search for textures in avatar ascii art WIP
+      for (let i=0;i<28;i++) {
+        let avatarText = $('#avatar p')[i].innerHTML;
+        avatarText.replace(/[G]/g, 'P');
+      }
+      
+      //let result = avatarText.search(pattern);
+     
+      //console.log(result); 
       $(".eyes").css({"color":"#08ec08", "font-weight":"900"});
       $('#'+myCards[nextCardIndex].cardIndex).css('visibility','hidden');
       $("#resetTable").css("visibility" , "visible");
@@ -221,10 +237,6 @@ var Main = (function () {
           }
           //Begin game
           $("#startHere").click(prepareGame);
-
-
-
-          
         };
         return pub;
         }());

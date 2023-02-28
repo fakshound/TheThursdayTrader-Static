@@ -15,8 +15,8 @@ a {
   position: fixed;
   margin: auto;
   font-family: 'Courier-New-Bold';
-  background-color: #334634;
-  color: #bad3c2;
+  background-color: #000;
+  color: #daffc9;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -262,8 +262,8 @@ a {
 
 input[type=button] {
   text-align: center;
-  background-color: #334634;
-  color: #bad3c2;
+  background-color: #000;
+  color: #75ec3f;
   font-weight: 900;
   font-family: 'Courier-New-Bold';
 }
