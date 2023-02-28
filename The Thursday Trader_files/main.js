@@ -213,6 +213,8 @@ var Main = (function () {
       $(".eyes").css({"color":"#08ec08", "font-weight":"900"});
       $('#'+myCards[nextCardIndex].cardIndex).css('visibility','hidden');
       $("#resetTable").css("visibility" , "visible");
+      console.log($('#resetTable input')[0].value);
+      $('#resetTable input')[0].value ="ENJOY";
       $("#resetTable").click(resetGame);
     }
   }

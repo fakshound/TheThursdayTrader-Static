@@ -15,8 +15,8 @@ a {
   position: fixed;
   margin: auto;
   font-family: 'Courier-New-Bold';
-  background-color: #8a6262;
-  color: #daffc9;
+  background-color: #000;
+  color: #919191;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -233,10 +233,10 @@ a {
 
 @keyframes rotateCat {
   from {transform: rotate(10deg);
-        color: #f2f2f2;
+        color: #daffc9;
   }
   to {transform: rotate(-10deg);
-      color: #8c8c8c;
+      color: #c6ffab;
   }
 }
 .eyes {
