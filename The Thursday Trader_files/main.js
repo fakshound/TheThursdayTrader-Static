@@ -53,7 +53,7 @@ var Main = (function () {
       //Event listeners
       $('#'+myCards[i].cardIndex+'Accept').click(function(){cardAccept(myCards, myCards[i].cardIndex);});
       $('#'+myCards[i].cardIndex+'Decline').click(function(){cardDecline(myCards, myCards[i].cardIndex)});
-      $('#'+myCards[i].cardIndex+'Decline').css("color","#ff4d4d");
+      $('#'+myCards[i].cardIndex+'Decline').css("color","#a6a6a6");
     } else {
       gameOver(myCards, i);
     }
