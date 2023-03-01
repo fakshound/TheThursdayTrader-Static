@@ -53,6 +53,7 @@ var Main = (function () {
       //Event listeners
       $('#'+myCards[i].cardIndex+'Accept').click(function(){cardAccept(myCards, myCards[i].cardIndex);});
       $('#'+myCards[i].cardIndex+'Decline').click(function(){cardDecline(myCards, myCards[i].cardIndex)});
+      $('#'+myCards[i].cardIndex+'Decline').css("color","#ff4d4d");
     } else {
       gameOver(myCards, i);
     }
@@ -130,9 +131,10 @@ var Main = (function () {
       //Out of cards
       if(discardedCards.length === myCards.length) {
         $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
-        $(".eyes").css({"color":"#f71a0a"});        $(".eyes").text("[~]");   
+        $(".eyes").css({"color":"#f71a0a"});        
+        $(".eyes").text("~");   
         $(".voice").text("NOTHING4U");   
-        setTimeout(resetGame, 5000);
+        setTimeout(endScene, 5000, 1);
       }
         var nextCardIndex = randX;{
         return nextCardIndex;
@@ -206,12 +208,11 @@ var Main = (function () {
         let avatarText = $('#avatar p')[i].innerHTML;
         avatarText = avatarText.replace(/[G]/g, 'P');
       }
-
       $(".eyes").css({"color":"#08ec08", "font-weight":"900"});
       $('#'+myCards[nextCardIndex].cardIndex).css('visibility','hidden');
       $("#resetTable").css("visibility" , "visible");
       $('#resetTable input')[0].value ="ENJOY";
-      $("#resetTable").click(resetGame);
+      $("#resetTable").click(function() {endScene(1)});
     }
   }
   function gameOver (myCards, i) {
@@ -221,10 +222,22 @@ var Main = (function () {
       $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
       $(".eyes").css({"color":"#f71a0a"});
       $("#resetTable").css("visibility" , "visible");
-      $("#resetTable").click(resetGame);
+      $("#resetTable").click(function() {endScene(0)});
+  }
+  //credits
+  function endScene (i) {
+    if(i == 1){
+      $('#HUD').css("visibility", "hidden");
+      $('#resetTable').css("visibility", "hidden");
+      $('#howToPlay').css("visibility", "hidden");
+      $('#credits').css("visibility", "visible");
+      setTimeout(resetGame, 3000);
+    } else if(i == 0) {
+      resetGame()
+    }
   }
   function resetGame () {
-    location.reload()
+    location.reload();
   }
         pub.setup = function () {
           //are we portrait or landscape?

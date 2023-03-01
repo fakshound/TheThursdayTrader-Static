@@ -241,7 +241,7 @@ a {
 }
 
 .eyes {
-  color: rgb(232, 248, 10);
+  color: #ffcc99;
   animation: blinkEyes 2s infinite;
   transform: translateZ(0);
 }
@@ -256,7 +256,7 @@ a {
 } 
 .voice {
   font-weight: bolder;
-  color: rgb(232, 248, 10);
+  color: #ffcc99;
 }
 
 /*Buttons Style*/
@@ -272,6 +272,11 @@ input[type=button] {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+#start {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
 #clickMe {
   position: absolute;
   top: 2%;
@@ -282,4 +287,9 @@ input[type=button] {
   position: absolute;
   top: 2%;
   left: 1%;
+}
+#credits {
+  visibility: hidden;
+  background-color: #75ec3f;
+  color: #ffffff;
 }
