@@ -204,16 +204,12 @@ var Main = (function () {
       //search for textures in avatar ascii art WIP
       for (let i=0;i<28;i++) {
         let avatarText = $('#avatar p')[i].innerHTML;
-        avatarText.replace(/[G]/g, 'P');
+        avatarText = avatarText.replace(/[G]/g, 'P');
       }
-      
-      //let result = avatarText.search(pattern);
-     
-      //console.log(result); 
+
       $(".eyes").css({"color":"#08ec08", "font-weight":"900"});
       $('#'+myCards[nextCardIndex].cardIndex).css('visibility','hidden');
       $("#resetTable").css("visibility" , "visible");
-      console.log($('#resetTable input')[0].value);
       $('#resetTable input')[0].value ="ENJOY";
       $("#resetTable").click(resetGame);
     }
