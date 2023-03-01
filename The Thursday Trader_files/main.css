@@ -17,6 +17,7 @@ a {
   font-family: 'Courier-New-Bold';
   background-color: #142140;
   color: #dbd8bf;
+  filter: sepia(5%);
   overflow: hidden;
   width: 100%;
   height: 100%;
