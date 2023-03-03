@@ -211,7 +211,6 @@ a {
 /*Avatar style and animation*/
 #avatar {
   padding: 12px; 
-  left: 35vw;
 }
 #avatar2 {
   position: absolute;
@@ -240,6 +239,7 @@ a {
       color: #f2f2f2;
   }
 }
+
 
 .eyes {
   color: #ffcc99;

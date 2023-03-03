@@ -94,8 +94,8 @@ var Main = (function () {
               }
               break;
             case '*':
-            //Thursday bonus
-              if( day === 4) {
+            // Checks if tomorrow is thursday
+              if( day === 3) {
                 var res = node.text.replace("   ", "///");
                 node.innerHTML = res;
               }
@@ -111,10 +111,13 @@ var Main = (function () {
   //Card Decline
   function cardDecline(myCards, i){
     sessionStorage.setItem(myCards[i].cardIndex, myCards[i].cardIndex );
+    var discardedCards = Object.keys(sessionStorage);
     //Hide card and show the next card
     var nextCardIndex = nextCard(myCards);
     $('#'+myCards[i].cardIndex).css('visibility','hidden');
-    showCard(myCards, nextCardIndex);
+    if (discardedCards.length < myCards.length) {
+      showCard(myCards, nextCardIndex);
+    }
   }
 
   //Draw a random card from the deck
@@ -131,13 +134,19 @@ var Main = (function () {
       //Out of cards
       if(discardedCards.length === myCards.length) {
         $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
+        //breakCat animation
+        $("#avatar p").css({"animation-name":"rotateCat", "animation-duration":"1s", "animation-direction":"alternate", "animation-iteration-count": "infinite"});
+        $("#avatar2 p").css({"animation-name":"rotateCat", "animation-duration":"2s", "animation-iteration-count": "infinite"});
         $(".eyes").css({"color":"#f71a0a"});        
-        $(".eyes").text("~");   
-        $(".voice").text("NOTHING4U");   
+        $(".eyes").text("~");
+        $("")   
+        $(".voice").text("NIKS4ME?");   
         setTimeout(endScene, 5000, 1);
-      }
+      } else {
         var nextCardIndex = randX;{
-        return nextCardIndex;
+          return nextCardIndex;
+      }
+        
     }
   }
   //Inventory
