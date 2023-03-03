@@ -136,12 +136,12 @@ var Main = (function () {
         $(".voice").css({"animation-name":"blinkRed", "animation-duration":"1s", "animation-iteration-count": "infinite"});
         //breakCat animation
         $("#avatar p").css({"animation-name":"rotateCat", "animation-duration":"1s", "animation-direction":"alternate", "animation-iteration-count": "infinite"});
-        $("#avatar2 p").css({"animation-name":"rotateCat", "animation-duration":"2s", "animation-iteration-count": "infinite"});
+        $("#avatar2 p").css({"animation-name":"rotateCat", "animation-duration":"0.5s", "animation-iteration-count": "infinite"});
         $(".eyes").css({"color":"#f71a0a"});        
         $(".eyes").text("~");
         $("")   
         $(".voice").text("NIKS4ME?");   
-        setTimeout(endScene, 5000, 1);
+        setTimeout(resetGame, 5000, 1);
       } else {
         var nextCardIndex = randX;{
           return nextCardIndex;
