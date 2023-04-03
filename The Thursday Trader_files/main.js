@@ -181,10 +181,10 @@ var Main = (function () {
   function howToPlay(tutorialArray, i) {
       let j=0;
       for (let i=0;i<=3;i++) {
-        setTimeout(typeTutorial, 6000*i, tutorialArray.tutorial[i],i,j);
+        setTimeout(typeTutorial, 6500*i, tutorialArray.tutorial[i],i,j);
       }
     }
-  //typewriter effect for tutorial
+  //word effect for tutorial
   function typeTutorial (tutorialLine, i, j) {
     let words = tutorialLine.split(" ");
     if (j < words.length) {
