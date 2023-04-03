@@ -181,17 +181,19 @@ var Main = (function () {
   function howToPlay(tutorialArray, i) {
       let j=0;
       for (let i=0;i<=3;i++) {
-        setTimeout(typeTutorial, 7000*i, tutorialArray.tutorial[i],i,j);
+        setTimeout(typeTutorial, 6000*i, tutorialArray.tutorial[i],i,j);
       }
     }
   //typewriter effect for tutorial
   function typeTutorial (tutorialLine, i, j) {
-    if (j < tutorialLine.length) {
-      $("#howToPlay p")[i].innerHTML += tutorialLine.charAt(j);
-      j++
-      setTimeout(typeTutorial, 50, tutorialLine, i, j);
+    let words = tutorialLine.split(" ");
+    if (j < words.length) {
+      $("#howToPlay p")[i].innerHTML += words[j] + " ";
+      j++;
+      setTimeout(typeTutorial, 250, tutorialLine, i, j);
     }
   }
+  
 
   //You have won
   function winCondition(myCards, nextCardIndex){
