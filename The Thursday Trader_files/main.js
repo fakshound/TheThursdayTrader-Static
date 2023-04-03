@@ -242,7 +242,7 @@ var Main = (function () {
       $('#resetTable').css("visibility", "hidden");
       $('#howToPlay').css("visibility", "hidden");
       $('#credits').css("visibility", "visible");
-      setTimeout(resetGame, 3000);
+      setTimeout(resetGame, 8000);
     } else if(i == 0) {
       resetGame()
     }
